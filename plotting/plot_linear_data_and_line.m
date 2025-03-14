@@ -8,7 +8,8 @@
 %{
 x = [1, 2, 3, 4] + rand(1, 4)
 y = [2, 3, 4, 5] + rand(1, 4)
-plot_linear_data_and_line(x, y, {"DisplayName", "IM A SCATTER PLOT"}, {"DisplayName", "IM A SCATTER PLOT"}, {90, 10, "FontSize", 20})
+plot_linear_data_and_line(x, y, {100, "DisplayName", "IM A SCATTER PLOT", '+'}, {"DisplayName", "IM A line PLOT"}, {50, 10, "FontSize", 20})
+legend()
 %}
 function plot_linear_data_and_line(x, y, scatteropts, plotopts, textopts)
     if ~exist("scatteropts", "var")
@@ -19,13 +20,22 @@ function plot_linear_data_and_line(x, y, scatteropts, plotopts, textopts)
     end
     if ~exist("textopts", "var")
         textopts = {90, 10};
+    else 
+      isstring(textopts{1})
+        if ischar(textopts{1}) || ischar(textopts{2}) 
+          error("\
+textopts variable must either be nothing, or the first two elements must be the \
+scalar position of the text to be placed on the axis.\nFor example, you can do: \
+{50, 10, \"FontSize\", 20}, or {} or nothing but {\"FontSize\", 20} will fail\
+")
+        end
     end
 
     [slope, inter, R2, yfit] = linear_fit(x, y);
-    scatter(x, y, scatteropts{:});
+    scatter(repmat(x, size(y, 1), 1), y, scatteropts{:});
     plot(x, yfit, plotopts{:});
 
-    [xpos, ypos] = get_position_on_ax_by_percent(xlim, ylim, textopts{1}, textopts{2});
+    [xpos, ypos] = get_position_on_ax_by_percent(textopts{1}, textopts{2});
 
     text(xpos, ypos, sprintf("y=%.3fx+%.3f\nR^2=%.3f", slope, inter, R2), textopts{3:end});
 end
