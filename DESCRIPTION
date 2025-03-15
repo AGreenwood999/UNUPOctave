@@ -1,0 +1,8 @@
+Name: unupoctave
+Version: 1.0.0
+Date: 2025-03-14
+Author: UN&UP Theralode team
+Maintainer: Augustus Greenwood <abg@unandup.com>
+Title: UNandUP Octave
+Description: This package provides analysis and preprocessing functions.
+License: GPL-3.0

@@ -1,0 +1,2 @@
+% Add directories in inst/ to path
+addpath(genpath(fileparts(mfilename('fullpath'))));
