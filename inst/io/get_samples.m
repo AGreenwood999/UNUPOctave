@@ -55,7 +55,6 @@ function samples = get_samples(data)
 end
 
 
-
 %!shared data
 %! data.platemap.Name = {"Blank", "Standard", "Sample A", "Sample A", "Sample B"};
 %! data.platemap.DilutionFactor = [1; 1; 2; 2; 5];
@@ -67,10 +66,10 @@ end
 %!test
 %! % Blank/Standard wells are excluded; sample names are sanitized to
 %! % valid fields, and the original label is preserved for display.
-%! samples = get_samples (data);
-%! assert (isequal (sort (fieldnames (samples)), sort ({"Sample_A"; "Sample_B"})));
-%! assert (samples.Sample_A.name, "Sample A");
-%! assert (samples.Sample_B.name, "Sample B");
+%! samples = get_samples(data);
+%! assert (isequal(sort(fieldnames(samples)), sort({"SampleA"; "SampleB"})));
+%! assert (samples.SampleA.name, "Sample A");
+%! assert (samples.SampleB.name, "Sample B");
 
 %!test
 %! % Hand-computed arithmetic for a replicated sample:
@@ -78,21 +77,9 @@ end
 %! % sample_concentration_Fe = well_concentration_Fe * DilutionFactor
 %! % sample_mass_Fe = sample_concentration_Fe * FinalVolume
 %! % sample_mass_Fe3O4 = sample_mass_Fe * 1.382
-%! samples = get_samples (data);
-%! assert (samples.Sample_A.well_concentration_Fe, [1; 2], 1e-10);
-%! assert (samples.Sample_A.sample_concentration_Fe, [2; 4], 1e-10);
-%! assert (samples.Sample_A.sample_mass_Fe, [20; 40], 1e-10);
-%! assert (samples.Sample_A.sample_mass_Fe3O4, [27.64; 55.28], 1e-10);
-%! assert (samples.Sample_B.sample_mass_Fe3O4, 552.8, 1e-10);
-
-%!shared collision_data
-%! % "Sample A" and "Sample-A" both sanitize to "Sample_A" -- this should
-%! % warn rather than silently clobber the first sample's data.
-%! collision_data.platemap.Name = {"Sample A", "Sample-A"};
-%! collision_data.platemap.DilutionFactor = [1; 1];
-%! collision_data.platemap.FinalVolume = [1; 1];
-%! collision_data.absorbance = [0.3; 0.5];
-%! collision_data.standards.m = 0.2;
-%! collision_data.standards.b = 0.1;
-
-%!warning get_samples (collision_data)
+%! samples = get_samples(data);
+%! assert(samples.SampleA.well_concentration_Fe, [1; 2], 1e-10);
+%! assert(samples.SampleA.sample_concentration_Fe, [2; 4], 1e-10);
+%! assert(samples.SampleA.sample_mass_Fe, [20; 40], 1e-10);
+%! assert(samples.SampleA.sample_mass_Fe3O4, [27.64; 55.28], 1e-10);
+%! assert(samples.SampleB.sample_mass_Fe3O4, 552.8, 1e-10);

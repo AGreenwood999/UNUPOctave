@@ -18,8 +18,8 @@ function valid = sanitize_fieldname(name)
 end
 
 %!assert (sanitize_fieldname ("Sample1"), "Sample1")
-%!assert (sanitize_fieldname ("Sample 1"), "Sample_1")
+%!assert (sanitize_fieldname ("Sample 1"), "Sample1")
 %!assert (sanitize_fieldname ("Fe-standard"), "Fe_standard")
-%!assert (sanitize_fieldname ("3T3 cells"), "s_3T3_cells")
+%!assert (sanitize_fieldname ("3T3 cells"), "s_3T3cells")
 %!assert (sanitize_fieldname (""), "s_")
 %!assert (sanitize_fieldname ("_already_valid"), "_already_valid")

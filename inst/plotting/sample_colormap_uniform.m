@@ -32,3 +32,6 @@ function cmap = sample_colormap_uniform(varargin)
 
     cmap = cmap(idx, :);
 end
+
+
+% TODO: Tests?
