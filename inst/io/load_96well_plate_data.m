@@ -31,7 +31,7 @@ function out = load_96well_plate_data(data_csv, platemap_ods, stds_conc)
     out.absorbance = subtract_blank(out);
 
     % Fit absorbance -> concentration calibration from the Standard wells.
-    out.standards = get_standards(out, stds_conc);
+    out.standards = get_standards(out, stds_conc(:));
 
     % Convert every remaining (non-blank, non-standard) well into a
     % per-sample concentration/mass using that calibration.

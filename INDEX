@@ -1,18 +1,21 @@
 UNUPOctave >> 96-Well Plate Assay Data Analysis
 
 Utilities
- select_wells
- sanitize_fieldname
+    filter_samples.m
+    matches_pattern.m
+    sanitize_fieldname.m
+    select_wells.m
+    write_platemap_template.m
 
 96-Well Plate Assay: I/O
- load_96well_plate_data
- load_96well_plate_platemap
- subtract_blank
- get_standards
- get_samples
+    get_samples.m
+    get_standards.m
+    load_96well_plate_data.m
+    load_96well_plate_platemap.m
+    subtract_blank.m
 
 Plotting
- sample_colormap_uniform
- add_standards_curve_to_axis
- add_sample_to_axis
- add_all_samples_to_axis
+    add_all_samples_to_axis.m
+    add_sample_to_axis.m
+    add_standards_curve_to_axis.m
+    sample_colormap_uniform.m

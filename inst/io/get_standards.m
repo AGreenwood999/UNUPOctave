@@ -38,9 +38,9 @@ end
 %!test
 %! % Three points falling exactly on a line -- slope/intercept/r2 are all
 %! % exactly known, so this pins down the fit math precisely.
-%! standards = get_standards (data, [0; 1; 2]);
-%! assert (standards.m, 0.2, 1e-10);
-%! assert (standards.b, 0.1, 1e-10);
-%! assert (standards.r2, 1, 1e-10);
+%! standards = get_standards(data, [0; 1; 2]);
+%! assert(standards.m, 0.2, 1e-10);
+%! assert(standards.b, 0.1, 1e-10);
+%! assert(standards.r2, 1, 1e-10);
 
-%!error get_standards (data, [0; 1])
+%!error get_standards(data, [0; 1])
