@@ -1,2 +1,8 @@
 % Add directories in inst/ to path
-addpath(genpath(fileparts(mfilename('fullpath'))));
+pkg_dir = fileparts(mfilename ("fullpath"));
+subdirs = dir(pkg_dir);
+for i = 1:numel(subdirs)
+    if (subdirs(i).isdir && ! any(strcmp(subdirs(i).name, {".", ".."})))
+        addpath(fullfile (pkg_dir, subdirs(i).name));
+    end
+end

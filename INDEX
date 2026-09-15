@@ -1,0 +1,18 @@
+UNUPOctave >> 96-Well Plate Assay Data Analysis
+
+Utilities
+ select_wells
+ sanitize_fieldname
+
+96-Well Plate Assay: I/O
+ load_96well_plate_data
+ load_96well_plate_platemap
+ subtract_blank
+ get_standards
+ get_samples
+
+Plotting
+ sample_colormap_uniform
+ add_standards_curve_to_axis
+ add_sample_to_axis
+ add_all_samples_to_axis

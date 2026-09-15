@@ -1,8 +1,12 @@
-Name: unupoctave
-Version: 1.0.0
-Date: 2025-03-14
-Author: UN&UP Theralode team
+Name: UNUPOctave
+Version: 0.1.0
+Date: 2026-09-14
+Author: Augustus Greenwood <abg@unandup.com>
 Maintainer: Augustus Greenwood <abg@unandup.com>
-Title: UNandUP Octave
-Description: This package provides analysis and preprocessing functions.
-License: GPL-3.0
+Title: 96-Well Plate Assay Data Analysis
+Description: Tools for loading, processing, and plotting 96-well plate
+ absorbance assay data. Currently supports iron (Fe/Fe3O4) quantification
+ via a standards-curve workflow; structured to add other plate-based
+ assays and plotting utilities over time.
+Depends: octave (>= 11.0.0), io (>= 2.6.0)
+License: GPLv3
