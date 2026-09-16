@@ -28,6 +28,7 @@ function standards = get_standards(data, conc)
     standards.m = standards.params(1);
     standards.b = standards.params(2);
     standards.r2 = standards.s.rsquared;
+    standards.fit_text = sprintf("y = %.3dx + %.3d\nR^2 = %.3d", standards.m, standards.b, standards.r2);
 end
 
 
